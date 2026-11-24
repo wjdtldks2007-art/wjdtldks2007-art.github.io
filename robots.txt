@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wjdtldks2007-art.github.io/sitemap.xml
