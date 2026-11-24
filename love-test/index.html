@@ -165,19 +165,18 @@
     word-break:keep-all;
   }
   .type-row{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:7px;
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:5px;
     margin:22px 0 4px;
   }
   .type-dot{
-    font-size:19px;
-    width:38px;
-    height:38px;
+    font-size:17px;
+    width:100%;
+    aspect-ratio:1 / 1;
     display:grid;
     place-items:center;
-    border-radius:13px;
+    border-radius:12px;
     background:#fff;
     border:1px solid var(--line);
     box-shadow:0 4px 10px -6px rgba(80,30,55,.3);
@@ -975,13 +974,14 @@
 
   /* ---------- 퀴즈 ---------- */
   function startQuiz(){
-    state = { i:0, answers:[], scores:{H:0,L:0,D:0,N:0,F:0,C:0}, hard:{H:0,L:0,D:0,N:0,F:0,C:0}, type:null };
+    state = { i:0, answers:[], scores:{H:0,L:0,D:0,N:0,F:0,C:0}, hard:{H:0,L:0,D:0,N:0,F:0,C:0}, type:null, locked:false };
     renderQuestion();
     show("quiz");
   }
 
   function renderQuestion(){
     var q = QUESTIONS[state.i];
+    state.locked = false;
     $("q-no").textContent = "Q" + (state.i + 1);
     $("q-text").textContent = q.q;
     $("count").textContent = (state.i + 1) + "/" + QUESTIONS.length;
@@ -1009,6 +1009,8 @@
   }
 
   function answer(idx, btn){
+    if (state.locked) return;
+    state.locked = true;
     btn.classList.add("picked");
     var opt = QUESTIONS[state.i].o[idx];
     state.answers[state.i] = idx;
