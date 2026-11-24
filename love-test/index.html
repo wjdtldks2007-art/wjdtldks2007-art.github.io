@@ -1160,11 +1160,15 @@
       text: shareText(),
       url: shareUrl()
     };
-    if (navigator.share){
-      navigator.share(data).catch(function(){ /* 사용자가 취소한 경우 */ });
+    // 기기 공유시트(카톡·인스타)를 쓸 수 있을 때만 사용하고, 아니면 링크 복사로 대체
+    var canShare = !!(navigator.share && (!navigator.canShare || navigator.canShare(data)));
+    if (canShare){
+      navigator.share(data).catch(function(err){
+        if (err && err.name === "AbortError") return;  // 사용자가 시트를 닫은 경우
+        copyLink();
+      });
     } else {
       copyLink();
-      toast("링크를 복사했어요. 카톡·인스타에 붙여넣기 💌");
     }
   }
 
