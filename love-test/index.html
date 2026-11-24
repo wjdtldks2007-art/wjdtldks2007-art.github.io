@@ -950,6 +950,12 @@
 
   var CHIP_LABEL = {H:"텐션 만렙", L:"정온 모드", D:"직진형", N:"관찰형", F:"즉흥형", C:"신중형"};
 
+  /* 축 조합 → 유형 키 */
+  var TYPE_BY_AXES = {
+    HDF:"burst", HDC:"script", HNF:"circus", HNC:"radar",
+    LDF:"sniper", LDC:"blueprint", LNF:"lurker", LNC:"glacier"
+  };
+
   /* ---------- DOM ---------- */
   var $ = function(id){ return document.getElementById(id); };
   var screens = {
@@ -961,6 +967,9 @@
 
   function show(name){
     Object.keys(screens).forEach(function(k){ screens[k].hidden = (k !== name); });
+    // 테스트 중에는 아래 소개/FAQ 영역을 잠시 가려 둔다
+    var info = document.querySelector(".info");
+    if (info) info.hidden = (name === "quiz");
     window.scrollTo({ top:0, behavior:"auto" });
   }
 
@@ -1023,7 +1032,8 @@
   }
 
   function finish(){
-    var key = pickPole("H","L") + pickPole("D","N") + pickPole("F","C");
+    var axes = pickPole("H","L") + pickPole("D","N") + pickPole("F","C");
+    var key = TYPE_BY_AXES[axes] || "burst";
     renderResult(key);
     show("result");
     setUrlType(key);
@@ -1031,8 +1041,8 @@
 
   /* ---------- 결과 ---------- */
   function renderResult(key){
+    if (!TYPES[key]) key = "burst";
     var t = TYPES[key];
-    if (!t) return;
     state.type = key;
 
     $("hero").style.background = "linear-gradient(150deg," + t.color[0] + " 0%," + t.color[1] + " 100%)";
