@@ -390,6 +390,7 @@ nav { display: flex; align-items: center; justify-content: space-between; gap: 1
 }
 .coupang-banner iframe { border: 0; }
 .ad-disclosure { margin: 0; max-width: 340px; font-size: 11px; line-height: 1.65; color: #7E8798; letter-spacing: -.01em; }
+@media (max-width: 400px) { .coupang-banner { width: calc(100% + 20px); margin-left: -10px; margin-right: -10px; } }
 
 /* toast */
 .toast {
