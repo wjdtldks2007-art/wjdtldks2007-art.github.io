@@ -1,4 +1,4 @@
-/* SIAN LAB · 사주 스튜디오 — 다크 + 금박 + 네온 */
+/* SIAN STUDIO · 사주 분석 — 다크 + 금박 + 네온 */
 
 @font-face {
   font-family: "Pretendard";
@@ -378,8 +378,18 @@ nav { display: flex; align-items: center; justify-content: space-between; gap: 1
 
 .disclaimer { font-size: 10.5px; line-height: 1.7; color: #5A6273; word-break: keep-all; }
 
-/* advertise slot (채워질 때만 표시) */
-.ad-slot { max-width: var(--max); margin: 0 auto 18px; padding: 0 22px; }
+/* 쿠팡 파트너스 배너 */
+.coupang-ad {
+  margin-top: clamp(28px, 5vw, 40px); padding-top: clamp(20px, 4vw, 28px);
+  border-top: 1px solid rgba(255, 255, 255, .07);
+  display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
+}
+.coupang-banner {
+  display: flex; justify-content: center; width: 100%; max-width: 340px;
+  overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
+}
+.coupang-banner iframe { border: 0; }
+.ad-disclosure { margin: 0; max-width: 340px; font-size: 11px; line-height: 1.65; color: #7E8798; letter-spacing: -.01em; }
 
 /* toast */
 .toast {

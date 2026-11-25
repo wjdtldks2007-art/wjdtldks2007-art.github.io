@@ -1,22 +1,54 @@
 {
   "id": "/",
-  "name": "SIAN LAB · 내가 만든 웹 서비스 모음",
-  "short_name": "SIAN LAB",
-  "description": "2026년 최저시급 기준 알바 실수령액 계산기와 연애 텐션 테스트를 한곳에서. 정시안이 직접 만들고 굴리는 웹 서비스 모음.",
+  "name": "SIAN STUDIO · 웹 서비스 스튜디오",
+  "short_name": "SIAN STUDIO",
+  "description": "사주팔자·60갑자 정밀 분석, 연애 텐션 테스트, 2026 알바 실수령액 계산기를 한곳에서. 정시안이 직접 기획하고 운영하는 웹 서비스 스튜디오.",
   "lang": "ko",
   "dir": "ltr",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui", "browser"],
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
   "background_color": "#090B10",
   "theme_color": "#090B10",
-  "categories": ["productivity", "utilities"],
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
   "icons": [
-    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

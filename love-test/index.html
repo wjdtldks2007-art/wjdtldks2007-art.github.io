@@ -8,7 +8,7 @@
 <meta name="description" content="10개의 질문으로 알아보는 나의 연애 텐션과 썸 유형. 8가지 개성 유형, 찰떡·환장 궁합까지 1분 만에 확인하고 카톡·인스타로 공유해 보세요." />
 <meta name="keywords" content="연애 테스트, 썸 테스트, 연애 유형 테스트, 심리테스트, 썸 유형, 찰떡 궁합, 환장 궁합, MBTI 연애, 무료 테스트" />
 <meta name="robots" content="index, follow" />
-<meta name="author" content="무료 생활 도구" />
+<meta name="author" content="SIAN STUDIO" />
 <meta name="theme-color" content="#FF4D6D" />
 <meta name="naver-site-verification" content="4abd9c88c584afc4a3177594d91446796b81fe75" />
 <meta name="google-site-verification" content="jYSlBA72Mb35ZYG-_oT56KLNQTm2DvZlT0kwC0I4Q4g" />
@@ -16,7 +16,7 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="ko_KR" />
-<meta property="og:site_name" content="내 연애 텐션 &amp; 썸 유형 테스트" />
+<meta property="og:site_name" content="SIAN STUDIO" />
 <meta property="og:title" content="내 연애 텐션 &amp; 썸 유형 테스트 💘" />
 <meta property="og:description" content="10문항 1분. 나의 썸 유형과 찰떡·환장 궁합까지 바로 확인하고 공유해 보세요." />
 <meta property="og:url" content="https://wjdtldks2007-art.github.io/love-test/" />
@@ -38,6 +38,8 @@
   "url":"https://wjdtldks2007-art.github.io/love-test/",
   "inLanguage":"ko-KR",
   "description":"10문항으로 알아보는 연애 텐션과 썸 유형 테스트. 8가지 유형과 찰떡·환장 궁합을 제공합니다.",
+  "author":{"@type":"Person","name":"정시안","url":"https://github.com/wjdtldks2007-art"},
+  "publisher":{"@type":"Organization","name":"SIAN STUDIO"},
   "isAccessibleForFree":true
 }
 </script>
@@ -489,24 +491,17 @@
   }
 
   /* 광고 자리 */
-  .ad-slot{
+  /* ---------- 쿠팡 파트너스 배너 ---------- */
+  .coupang-ad{
     margin-top:18px;
-    min-height:104px;
-    border:1.5px dashed #E3D2DA;
-    border-radius:16px;
-    background:rgba(255,255,255,.55);
-    display:grid;
-    place-items:center;
-    text-align:center;
-    padding:16px;
+    display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;
   }
-  .ad-slot span{
-    font-size:11.5px;
-    font-weight:700;
-    color:#B7A3AD;
-    letter-spacing:.01em;
-    line-height:1.6;
+  .coupang-banner{
+    display:flex;justify-content:center;width:100%;max-width:340px;
+    overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
   }
+  .coupang-banner iframe{border:0;}
+  .ad-disclosure{margin:0;max-width:340px;font-size:11.5px;line-height:1.6;color:#9C8A94;letter-spacing:-0.01em;}
 
   .more{
     margin-top:16px;
@@ -687,15 +682,16 @@
       <p class="share-note">같은 유형이 나온 친구에게 링크를 보내보세요.</p>
     </div>
 
-    <!-- =========================================================
-         [광고 / 쿠팡 파트너스 삽입 위치]
-         아래 .ad-slot div 를 통째로 지우고 애드센스 광고 단위나
-         쿠팡 파트너스 배너 코드를 붙여 넣으면 됩니다.
-         (결과 카드 바로 아래 · 모바일/PC 공통)
-         ========================================================= -->
-    <div class="ad-slot" aria-hidden="true">
-      <span>광고 영역<br />애드센스 · 쿠팡 파트너스 배너가 들어갈 자리</span>
-    </div>
+    <!-- ===== 쿠팡 파트너스 다이나믹 배너 (결과 화면 하단) ===== -->
+    <section class="coupang-ad" aria-label="쿠팡 파트너스 광고">
+      <div class="coupang-banner">
+        <script src="https://ads-partners.coupang.com/g.js"></script>
+        <script>
+        new PartnersCoupang.G({"id":1059648,"template":"carousel","trackingCode":"AF4969621","width":"320","height":"100","tsource":""});
+        </script>
+      </div>
+      <p class="ad-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+    </section>
 
     <div class="more">
       <h3>다른 유형도 궁금하다면</h3>
@@ -727,7 +723,7 @@
 
   <footer>
     <p>이 테스트는 재미로 보는 심리테스트입니다. 결과는 절대적인 진단이 아니에요.</p>
-    <p style="margin-top:5px;">© 2026 무료 생활 도구 · 연애 텐션 테스트</p>
+    <p style="margin-top:5px;">© 2026 SIAN STUDIO · 연애 텐션 &amp; 썸 유형 테스트</p>
   </footer>
 </div>
 

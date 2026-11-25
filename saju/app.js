@@ -1,4 +1,4 @@
-/** SIAN LAB 사주 — 화면 조립과 공유 */
+/** SIAN STUDIO 사주 — 화면 조립과 공유 */
 
 import {
   computeChart, compatibility, todayFortune, lunarMonths, termTime,
@@ -542,7 +542,7 @@ async function nativeShare() {
   const url = shareURL(v);
   const text = `내 사주는 ${state.chart.ilju.name} ${state.chart.pillars[2].gapja.korean}일주래`;
   if (navigator.share) {
-    try { await navigator.share({ title: 'SIAN LAB 사주', text, url }); return; } catch { /* 취소 */ }
+    try { await navigator.share({ title: 'SIAN STUDIO 사주', text, url }); return; } catch { /* 취소 */ }
   }
   copyLink();
 }
@@ -589,7 +589,7 @@ async function saveCard(chart, v, luckyEl) {
     g.fillText(t, W / 2, y);
   };
 
-  center('SIAN LAB · SAJU', 132, 24, 'rgba(231,197,123,.85)', 800);
+  center('SIAN STUDIO · SAJU', 132, 24, 'rgba(231,197,123,.85)', 800);
   center('四柱八字', 236, 40, 'rgba(231,197,123,.55)', 500, '"SIAN Serif"');
 
   center(chart.ilju.name, 400, 104, '#F8E7BC');
@@ -643,7 +643,7 @@ async function saveCard(chart, v, luckyEl) {
   g.fillText(`${lucky.colors[0]} · ${lucky.numbers.join('·')} · ${lucky.items[0]}`, W / 2, 1380);
 
   g.font = '700 22px Pretendard, sans-serif'; g.fillStyle = 'rgba(120,130,150,.9)';
-  g.fillText('SIAN LAB · wjdtldks2007-art.github.io/saju', W / 2, 1500);
+  g.fillText('SIAN STUDIO · wjdtldks2007-art.github.io/saju', W / 2, 1500);
   g.fillStyle = 'rgba(231,197,123,.85)'; g.font = '800 20px Pretendard, sans-serif';
   g.fillText(`${fmtDate(chart.solar.y, chart.solar.m, chart.solar.d)} · ${chart.hourKnown ? ZHI_HOUR[chart.pillars[3].gapja.z] : '시간 모름'}`, W / 2, 1540);
 
