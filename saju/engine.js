@@ -180,11 +180,17 @@ export function computeChart(input) {
   const { y, m, d, hour = null, lunar = false, leap = false } = input;
   let solar;
   let lunarDate = null;
+  if (!Number.isFinite(y) || !Number.isFinite(m) || !Number.isFinite(d) || m < 1 || m > 12 || d < 1 || d > 31) {
+    return { error: 'invalid' };
+  }
   if (lunar) {
+    if (y < LUNAR_RANGE[0] || y > LUNAR_RANGE[1]) return { error: 'lunar_range' };
     solar = lunarToSolar(y, m, d, leap);
-    if (!solar) return { error: 'lunar_range' };
+    if (!solar) return { error: 'invalid' };
     lunarDate = { y, m, d, leap: !!leap };
   } else {
+    if (y < TERM_RANGE[0] || y > TERM_RANGE[1]) return { error: 'range' };
+    if (d > new Date(Date.UTC(y, m, 0)).getUTCDate()) return { error: 'invalid' };
     solar = { y, m, d };
     lunarDate = solarToLunar(y, m, d);   // 표 범위(1900~2050) 밖이면 null — 양력 계산은 그대로
   }

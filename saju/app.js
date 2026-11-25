@@ -164,7 +164,9 @@ function submit() {
     err.hidden = false;
     err.textContent = chart.error === 'lunar_range'
       ? '음력 표 범위(1900~2050년)를 벗어났어요. 양력으로 바꿔서 다시 해 주세요.'
-      : '이 날짜는 계산할 수 없어요. 날짜를 다시 확인해 주세요.';
+      : chart.error === 'range'
+        ? '양력 1900~2100년 사이만 계산할 수 있어요. 연도를 다시 확인해 주세요.'
+        : '이 날짜는 계산할 수 없어요. 날짜를 다시 확인해 주세요.';
     return;
   }
   err.hidden = true;
@@ -221,6 +223,10 @@ function render(chart, v) {
         <span>${esc(ilju.tag)}</span>
         <span>${esc(dm.element)} ${esc(dm.yin)} 일간</span>
         <span>${esc(chart.pillars[0].gapja.korean)}년</span>
+      </div>
+      <div class="head-share">
+        <button type="button" class="btn-ghost" id="btn-copy-top">링크 복사</button>
+        <button type="button" class="btn-ghost" id="btn-image-top">카드 저장</button>
       </div>
       <p class="result-meta">
         ${dateLine}
@@ -474,6 +480,8 @@ function wireResult(chart, v, luckyEl) {
   });
 
   $('#btn-copy').addEventListener('click', copyLink);
+  $('#btn-copy-top')?.addEventListener('click', copyLink);
+  $('#btn-image-top')?.addEventListener('click', () => saveCard(chart, v, luckyEl));
   $('#btn-image').addEventListener('click', () => saveCard(chart, v, luckyEl));
   $('#btn-native').addEventListener('click', nativeShare);
   $('#btn-restart').addEventListener('click', () => {
@@ -674,9 +682,12 @@ function fromQuery() {
   const y = +b.slice(0, 4); const m = +b.slice(4, 6); const d = +b.slice(6, 8);
   const t = p.get('t');
   const branch = t === null || t === 'x' ? null : Math.max(0, Math.min(11, +t));
+  const lunar = p.get('c') === 'l';
+  const [y0, y1] = lunar ? LUNAR_RANGE : TERM_RANGE;
+  // 범위를 벗어나거나 깨진 링크는 조용히 무시하고 입력 화면을 그대로 둔다
+  if (!(y >= y0 && y <= y1) || m < 1 || m > 12 || d < 1 || d > 31) return null;
   return {
-    y, m, d,
-    lunar: p.get('c') === 'l',
+    y, m, d, lunar,
     leap: p.get('lp') === '1',
     branch,
     hour: branch === null ? null : HOUR_OF_BRANCH[branch],
