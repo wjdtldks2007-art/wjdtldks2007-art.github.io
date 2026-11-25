@@ -284,7 +284,7 @@ nav { display: flex; align-items: center; justify-content: space-between; gap: 1
 .bar-row .b-pct { font-size: 10.5px; font-weight: 800; color: var(--ink-2); text-align: right; font-variant-numeric: tabular-nums; }
 .radar-wrap { display: grid; place-items: center; }
 .radar { width: min(250px, 72vw); height: auto; }
-.ohang-note { margin-top: 4px; font-size: 12.5px; line-height: 1.72; color: var(--ink-2); word-break: keep-all; }
+.ohang-note { margin-top: 4px; max-width: 46em; font-size: 12.5px; line-height: 1.72; color: var(--ink-2); word-break: keep-all; }
 .ohang-note b { color: var(--gold-2); font-weight: 800; }
 
 /* 일간 */
@@ -297,7 +297,7 @@ nav { display: flex; align-items: center; justify-content: space-between; gap: 1
 }
 .dm-title { font-size: clamp(17px, 4.4vw, 21px); font-weight: 800; letter-spacing: -.03em; }
 .dm-sub { font-size: 11.5px; font-weight: 700; color: var(--gold); letter-spacing: .06em; margin-top: 2px; }
-.dm-desc { margin-top: 14px; font-size: 13px; line-height: 1.75; color: var(--ink-2); word-break: keep-all; }
+.dm-desc { margin-top: 14px; max-width: 44em; font-size: 13px; line-height: 1.75; color: var(--ink-2); word-break: keep-all; }
 .dm-split { display: grid; gap: 8px; margin-top: 14px; }
 .dm-split div { font-size: 12px; line-height: 1.65; color: var(--ink-2); }
 .dm-split b { color: #D9E3F5; font-weight: 800; margin-right: 6px; }
@@ -319,9 +319,9 @@ nav { display: flex; align-items: center; justify-content: space-between; gap: 1
 .ring .ring-txt b { font-size: 24px; font-weight: 800; letter-spacing: -.04em; color: var(--gold-2); line-height: 1; }
 .ring .ring-txt span { font-size: 9px; font-weight: 800; letter-spacing: .16em; color: var(--ink-3); margin-top: 3px; }
 .today-headline { font-size: clamp(15px, 4vw, 18px); font-weight: 800; letter-spacing: -.03em; }
-.today-line { margin-top: 5px; font-size: 12.5px; line-height: 1.66; color: var(--ink-2); word-break: keep-all; }
+.today-line { margin-top: 5px; max-width: 44em; font-size: 12.5px; line-height: 1.66; color: var(--ink-2); word-break: keep-all; }
 .today-sub { display: grid; gap: 7px; margin-top: 14px; }
-.today-sub p { font-size: 12px; line-height: 1.62; color: var(--ink-2); word-break: keep-all; }
+.today-sub p { max-width: 50em; font-size: 12px; line-height: 1.62; color: var(--ink-2); word-break: keep-all; }
 .today-sub b { color: #E2D3AE; font-weight: 800; margin-right: 6px; }
 
 /* 행운 */
@@ -358,7 +358,7 @@ nav { display: flex; align-items: center; justify-content: space-between; gap: 1
 }
 .compat-pair .cp small { display: block; font-size: 9px; font-weight: 700; color: var(--ink-3); letter-spacing: .12em; }
 .compat-tier { font-size: clamp(17px, 4.4vw, 21px); font-weight: 800; letter-spacing: -.03em; color: var(--gold-2); }
-.compat-comment { font-size: 12.5px; line-height: 1.7; color: var(--ink-2); word-break: keep-all; }
+.compat-comment { font-size: 12.5px; line-height: 1.7; color: var(--ink-2); word-break: keep-all; max-width: 40em; }
 .compat-notes { display: grid; gap: 6px; margin-top: 2px; }
 .compat-notes span { font-size: 11.5px; color: #C9BB99; line-height: 1.55; }
 .compat-notes span::before { content: "· "; color: var(--gold); }
@@ -413,7 +413,7 @@ footer { margin-top: clamp(34px, 6vw, 56px); padding: clamp(24px, 4vw, 32px) 0 c
   .lucky-grid { grid-template-columns: repeat(3, 1fr); }
   .share-row { grid-template-columns: 1fr 1fr 1fr; }
   .share-row .share-btn:last-child { grid-column: auto; }
-  .compat-form { grid-template-columns: 1fr auto; align-items: end; }
+  .compat-form { grid-template-columns: minmax(0, 560px) auto; align-items: end; }
   .compat-form .compat-fields { display: grid; gap: 8px; }
   .dm-split { grid-template-columns: 1fr 1fr; }
 }
