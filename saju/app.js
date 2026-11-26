@@ -130,10 +130,10 @@ function selectHour(branch) {
 
 function initForm() {
   const yearSel = $('#sel-year');
-  fillSelect(yearSel, Array.from({ length: TERM_RANGE[1] - TERM_RANGE[0] + 1 }, (_, i) => TERM_RANGE[0] + i), 2007);
-  fillSelect($('#sel-month'), Array.from({ length: 12 }, (_, i) => i + 1), 9);
+  // 기본값은 중립 날짜(2000-01-01) — 특정인의 생일이 화면에 미리 박히지 않게 한다
+  fillSelect(yearSel, Array.from({ length: TERM_RANGE[1] - TERM_RANGE[0] + 1 }, (_, i) => TERM_RANGE[0] + i), 2000);
+  fillSelect($('#sel-month'), Array.from({ length: 12 }, (_, i) => i + 1), 1);
   refreshDays(false);
-  fillSelect($('#sel-day'), Array.from({ length: 30 }, (_, i) => i + 1), 8);
 
   document.querySelectorAll('.seg-btn').forEach((b) => b.addEventListener('click', () => setCalendar(b.dataset.cal)));
   yearSel.addEventListener('change', refreshMonths);
